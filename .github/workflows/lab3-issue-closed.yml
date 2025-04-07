@@ -6,6 +6,7 @@ on:
 
 jobs:
   comment:
+    if: github.event.issue.state == 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Comment on closed issue
@@ -17,4 +18,4 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
               body: "The issue is now resolved."
-            })
+            });
